@@ -1,0 +1,28 @@
+<div class="pt-75">
+  <div class="layout-row align-items-center justify-content-center">
+    <input type="date" class="large outlined" data-test-id="app-input"
+           placeholder="Filter Date"/>
+    <button class="" data-test-id="submit-button">Filter</button>
+  </div>
+<div class="card mx-auto table-card mt-50 pb-10">
+  <p-table [value]="txns">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Amount ($)</th>
+        <th>Available Balance</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-txn>
+      <tr>
+        <td>{{txn.date}}</td>
+        <td>{{txn.description}}</td>
+        <td>{{txn.type === 1 ? "Debit" : "Credit"}}</td>
+        <td>{{txn.amount}}</td>
+        <td>{{txn.balance}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
